@@ -21,7 +21,8 @@ class MyArray {
     }
 
     delete(index) {
-        const item = this.data[index];
+        const itconsole.log('>>>>>>>> ', undefined >= 0)
+        em = this.data[index];
         this.shiftItems(index);
         return item;
     }
@@ -62,3 +63,37 @@ function reverse(str) {
 
 // const reversed = reverse('Hi My name is Andrei');
 // console.log('reversed>>>>> ', reversed);
+
+// merge sorted array
+function mergeSortedArray(arr1, arr2) {
+    let mergedArr = [];
+    let arrItem1 = arr1[0];
+    let arrItem2 = arr2[0];
+    let i = 1;
+    let j = 1;
+
+    if (!arr1.length) {
+        return arr2;
+    }
+
+    if (!arr2.length) {
+        return arr1;
+    }
+
+    while (arrItem1 >= 0 || arrItem2 >= 0) { // to check if the number still exist an great than or equal 0
+        if (arrItem2 === undefined || arrItem1 < arrItem2) {
+            mergedArr.push(arrItem1);
+            arrItem1 = arr1[i];
+            i++;
+        } else {
+            mergedArr.push(arrItem2);
+            arrItem2 = arr2[j];
+            j++;
+        }
+    }
+
+    return mergedArr;
+}
+
+
+console.log(mergeSortedArray([2,2,5], [0,6,7]))
